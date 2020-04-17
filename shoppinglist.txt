@@ -1,5 +1,0 @@
-- potatoes
-- carrots
-- onions
-- meat
-- bread
