@@ -5,80 +5,83 @@ import java.util.*;
 class Main {
     public static void main(String [] args) {
         Scanner syote = new Scanner(System.in);
-        System.out.println("KPS-peli, paras kolmesta");
-        System.out.println();
+        System.out.println("-----------------------------");
+        System.out.println("Rock, paper and scissors game\nBest out of three\n");
+        System.out.println("-----------------------------");
         int a = 0;
         int pelaajanvoitot = 0;
         int aivoitot = 0;
         while (a < 3){
-            System.out.println("Kivi, paperi, vai sakset?");
+            System.out.println("Select rock, paper, or scissors:");
             String valinta = syote.nextLine();
             String aitulos = arvonta();
-            System.out.print("Tietokone valitsi ");
+            System.out.print("Computer selected ");
             System.out.println(aitulos);
             if (valinta.equals(aitulos)){
-                System.out.println("TASAPELI!");
+                System.out.println("IT'S A DRAW!");
             }
-            if (valinta.equals("kivi")){
+            if (valinta.equals("rock")){
                 switch (aitulos){
-                    case "paperi":
-                        System.out.println("HÄVISIT!");
+                    case "paper":
+                        System.out.println("YOU LOST!");
                         aivoitot++;
                         break;
-                    case "sakset":
-                        System.out.println("VOITIT!");
+                    case "scissors":
+                        System.out.println("YOU WON!");
                         pelaajanvoitot++;
                         break;
                 }
             }
-            if (valinta.equals("paperi")){
+            if (valinta.equals("paper")){
                 switch (aitulos){
-                    case "sakset":
-                        System.out.println("HÄVISIT!");
+                    case "scissors":
+                        System.out.println("YOU LOST!");
                         aivoitot++;
                         break;
-                    case "kivi":
-                        System.out.println("VOITIT!");
+                    case "rock":
+                        System.out.println("YOU WON!");
                         pelaajanvoitot++;
                         break;
                 }
             }
-            if (valinta.equals("sakset")){
+            if (valinta.equals("scissors")){
                 switch (aitulos){
-                    case "kivi":
-                        System.out.println("HÄVISIT!");
+                    case "rock":
+                        System.out.println("YOU LOST!");
                         aivoitot++;
                         break;
-                    case "lisko":
-                        System.out.println("VOITIT!");
+                    case "paper":
+                        System.out.println("YOU WON!");
                         pelaajanvoitot++;
                         break;
                 }
             }
             a++;
         }
+        System.out.println("-------------------");
         if (pelaajanvoitot < aivoitot){
-            System.out.println("HÄVISIT KOKO PELIN!");
+            System.out.println("You LOST the whole game!");
         }
         if (pelaajanvoitot > aivoitot){
-            System.out.println("VOITIT KOKO PELIN!");
+            System.out.println("You WON the whole game!");
         }
         if (pelaajanvoitot == aivoitot){
-            System.out.println("PELASITTE TASAN!");
+            System.out.println("The whole game is a DRAW!");
         }
+        System.out.println("-------------------");
     }
     public static String arvonta(){
         Random rand = new Random();
         int arvonta = rand.nextInt(3);
         String aitulos = "";
         if (arvonta == 0){
-            aitulos = "kivi";
+            aitulos = "rock";
         }
         if (arvonta == 1){
-            aitulos = "paperi";
+            aitulos = "paper";
         }
         if (arvonta == 2){
-            aitulos = "sakset";
+            aitulos = "scissors";
         }
         return aitulos;
     }
